@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "gympet"
+version = "0.1.0"
+description = ""
+authors = ["Dbtzhv <denibatyzhev@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = "^2.0.30"
+alembic = "^1.13.1"
+fastapi = "^0.111.0"
+fastapi-versioning = "^0.10.0"
+black = "^24.4.2"
+pyright = "^1.1.364"
+autoflake = "^2.3.1"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+pydantic-settings = "^2.2.1"
+pydantic = "^2.7.1"
+asyncpg = "^0.29.0"
+greenlet = "^3.0.3"
+pyjwt = "^2.8.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = "4.0.1"
+python-jose = "^3.3.0"
+pytest = "^8.2.1"
+pytest-asyncio = "^0.23.7"
+httpx = "^0.27.0"
+pytest-dotenv = "^0.5.2"
+websockets = "^12.0"
+pytest-mock = "^3.14.0"
+importlib-metadata = "4.13.0"
+celery = "^5.4.0"
+taskiq-aio-pika = "^0.4.0"
+taskiq = "^0.11.6"
+taskiq-fastapi = "^0.3.1"
+python-logging-loki = "^0.3.1"
+starlette-exporter = "^0.23.0"
+stripe = "^10.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+
+
+[tool.autoflake]
+check_diff = true
+imports = ["sqlalchemy"]
+
+
+[tool.pyright]
+include = ["app"]
