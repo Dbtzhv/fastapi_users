@@ -13,7 +13,7 @@ log = get_logger(__name__)
 
 
 @macros_router.get(
-    "", status_code=status.HTTP_200_OK, summary="Get macros", response_model=Macros
+    "", status_code=status.HTTP_200_OK, summary="Get current user macros", response_model=Macros
 )
 async def macros(user: Annotated[User, Depends(get_current_subscribed_user)]):
     weight = user.weight
