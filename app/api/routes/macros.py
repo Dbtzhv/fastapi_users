@@ -2,7 +2,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.api.dependencies import get_current_superuser, get_current_subscribed_user
+from app.api.dependencies import get_current_subscribed_user
 from app.log import get_logger
 from app.models.user import User
 from app.schemas.macros import Macros
