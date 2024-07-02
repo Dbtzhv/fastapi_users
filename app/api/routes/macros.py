@@ -18,8 +18,8 @@ log = get_logger(__name__)
 async def macros(user: Annotated[User, Depends(get_current_subscribed_user)]):
     weight = user.weight
     if not weight:
-        log.info("macros: weight is not set")
-        raise HTTPException(status_code=400, detail="Weight is not set")
+        log.info("macros: user weight is not set")
+        raise HTTPException(status_code=400, detail="User weight is not set")
     calories = weight * 33
     proteins = round(weight * 1.7)
     fats = round(max(weight * 0.8, 50))
