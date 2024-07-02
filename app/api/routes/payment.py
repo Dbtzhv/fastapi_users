@@ -36,7 +36,7 @@ async def stripe_webhook(db: db_dependency, request: Request, session_id: str):
     session = stripe.checkout.Session.retrieve(session_id)
 
     user = int(session.metadata.get("user_id"))
-    await UserDAO.update(db, user, is_superuser=True)
+    await UserDAO.update(db, user, is_subscribed=True)
 
     docs_url = request.url_for("swagger_ui_html")
 

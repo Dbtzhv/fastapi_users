@@ -43,3 +43,14 @@ async def get_current_superuser(
             detail="The user does not have enough privileges",
         )
     return current_user
+
+
+async def get_current_subscribed_user(
+    current_user: User = Depends(get_current_user),
+) -> User:
+    if not await UserDAO.is_subscribed(current_user):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="The user does not have subscription",
+        )
+    return current_user
