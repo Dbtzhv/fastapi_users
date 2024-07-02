@@ -13,6 +13,7 @@ class User(Base):
     hashed_password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(server_default=true())
     is_superuser: Mapped[bool] = mapped_column(server_default=false())
+    is_subscribed: Mapped[bool] = mapped_column(server_default=false())
     weight: Mapped[float] = mapped_column(nullable=True)
 
     def __repr__(self):

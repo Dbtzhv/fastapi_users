@@ -24,3 +24,7 @@ class UserDAO(BaseDAO):
     @staticmethod
     async def is_super_user(user: User) -> bool:
         return user.is_superuser
+
+    @staticmethod
+    async def is_subscribed(user: User) -> bool:
+        return user.is_subscribed

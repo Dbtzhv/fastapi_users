@@ -2,7 +2,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.api.dependencies import get_current_superuser
+from app.api.dependencies import get_current_superuser, get_current_subscribed_user
 from app.log import get_logger
 from app.models.user import User
 from app.schemas.macros import Macros
@@ -15,7 +15,7 @@ log = get_logger(__name__)
 @macros_router.get(
     "", status_code=status.HTTP_200_OK, summary="Get macros", response_model=Macros
 )
-async def macros(user: Annotated[User, Depends(get_current_superuser)]):
+async def macros(user: Annotated[User, Depends(get_current_subscribed_user)]):
     weight = user.weight
     if not weight:
         log.info("macros: weight is not set")
